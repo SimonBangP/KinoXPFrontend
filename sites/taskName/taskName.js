@@ -1,15 +1,23 @@
-const URL = "http://localhost:8081/api/worktasks/taskname"
+const URL = "http://localhost:8080/api/v1/worktasks/taskname"
 
+
+export function initTaskName() {
+  showAll();
+  document.getElementById("btn-get-all").onclick = () => {
+    showAll();
+  }
+}
 
 async function showAll() { //We will add errorhandling when we meet in the class
     const allTaskNames = await fetch(URL).then(r => r.json())
-    const tableRows = allTaskNames.map(taskName => `
-          <tr>
-            <td>${taskName.id}</td>
-            <td>${taskName.taskName}</td>
-            
-          </tr>
-        `
+    const tableRows = allTaskNames.map(taskName => 
+      `
+        <tr>
+          <td>${taskName.id}</td>
+          <td>${taskName.taskName}</td>
+          
+        </tr>
+      `
     ).join("")
     document.getElementById("tbl-taskname-body").innerHTML = tableRows
 }
