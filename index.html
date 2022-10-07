@@ -13,7 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
 
 
-    <script src="index.js" type="module"></script>
+    <script src="index.js"></script>
 </head>
 
 <body style="font-family: sans-serif">
@@ -31,7 +31,7 @@
             <a href="/users" data-navigo>Film</a>
         </li>
         <li>
-            <a href="/sites/employe/employee" data-navigo>Medarbejder</a>
+            <a href="/employee" data-navigo>Medarbejder</a>
         </li>
         <li>
             <a href="show-match" data-navigo>Arbejdsopgaver</a>
@@ -42,6 +42,25 @@
     </ul>
     <div id="content" style="margin:15px;"></div>
 </div>
+
+<div id="div-show-all">
+    <h3>Show all Task names</h3>
+    <button id="btn-get-all" onclick="showAll()">Get all</button>
+    <p>Show what you find in this table</p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Task name</th>
+
+        </tr>
+        </thead>
+        <tbody id="tbl-taskname-body">
+        </tbody>
+    </table>
+</div>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
