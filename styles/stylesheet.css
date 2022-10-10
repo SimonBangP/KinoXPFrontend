@@ -39,13 +39,21 @@ ul.menu-horizontal a.active {
  Verical style BEGIN
 */
 
+
+#topnav {
+    margin-left: 20px;
+    width: 15%;
+    display: flex;
+}
+
 ul.menu-vertical {
     list-style-type: none;
     margin: 0;
     padding: 0;
     width: fit-content;
     background-color: #f1f1f1;
-    display: inline-grid;
+    display: flex;
+    flex-direction: column;
 }
 
 ul.menu-vertical li a {
@@ -94,9 +102,14 @@ ul.menu-simple li {
 }
 
 #content {
-    display: inline-grid;
-    margin:15px;
+    display: block;
+    margin: 15px;
+    width: 100%;
 
+}
+
+.main-page {
+    display: flex;
 }
 
 /*
