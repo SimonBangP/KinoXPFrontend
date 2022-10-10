@@ -43,8 +43,9 @@ ul.menu-vertical {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 200px;
+    width: fit-content;
     background-color: #f1f1f1;
+    display: inline-grid;
 }
 
 ul.menu-vertical li a {
@@ -68,7 +69,7 @@ ul.menu-vertical li a:hover:not(.active) {
     display: flex;
 }
 ul.menu-vertical {
-    height: 500px;
+    height: 100vh;
 }
 /*
  Vertical style BEGIN
@@ -80,7 +81,7 @@ ul.menu-vertical {
 ul.menu-simple {
     list-style-type: none;
     padding: 0;
-    margin: 5;
+    margin: 5px;
 }
 
 ul.menu-simple li {
@@ -90,6 +91,12 @@ ul.menu-simple li {
     */
     display: inline;
     margin-right: 5px;
+}
+
+#content {
+    display: inline-grid;
+    margin:15px;
+
 }
 
 /*
