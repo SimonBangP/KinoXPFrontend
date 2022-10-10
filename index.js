@@ -10,6 +10,9 @@ window.addEventListener("load", async () => {
 
     const templateTaskName = await loadHtml("./sites/taskName/taskName.html")
     const templateEmployee = await loadHtml("./sites/employee/employee.html")
+    const templateSchedule = await loadHtml("./sites/schedule/schedule.html")
+    const templateOverview = await loadHtml("./sites/hallOverview/overview.html")
+    const templateTicketAdministration = await loadHtml("./sites/ticketAdministration/ticket.html")
 
     adjustForMissingHash()
 
@@ -40,6 +43,15 @@ window.addEventListener("load", async () => {
                 renderTemplate(templateEmployee, "content")
                 // initFindEmployee(match)
             },
+            "/schedule": (match) => {
+                renderTemplate(templateSchedule, "content")
+            },
+            "/overview": (match) => {
+                renderTemplate(templateOverview, "content")
+            },
+            "/ticket": (match) => {
+                renderTemplate(templateTicketAdministration, "content")
+            }
         })
         .notFound(() => {
             renderTemplate(templateNotFound, "content")
