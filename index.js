@@ -5,6 +5,7 @@ import {
 } from "./utils.js"
 
 import {initTaskName} from "./sites/taskName/taskName.js"
+import { initTimetable } from "./sites/employee/employee.js";
 
 window.addEventListener("load", async () => {
 
@@ -41,7 +42,7 @@ window.addEventListener("load", async () => {
             },
             "/employee": (match) => {
                 renderTemplate(templateEmployee, "content")
-                // initFindEmployee(match)
+                initTimetable()
             },
             "/schedule": (match) => {
                 renderTemplate(templateSchedule, "content")
