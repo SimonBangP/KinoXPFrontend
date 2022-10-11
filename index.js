@@ -14,6 +14,7 @@ window.addEventListener("load", async () => {
     const templateSchedule = await loadHtml("./sites/schedule/schedule.html")
     const templateOverview = await loadHtml("./sites/hallOverview/overview.html")
     const templateTicketAdministration = await loadHtml("./sites/ticketAdministration/ticket.html")
+    const templateSales = await loadHtml("./sites/sales/sales.html")
 
     adjustForMissingHash()
 
@@ -52,6 +53,9 @@ window.addEventListener("load", async () => {
             },
             "/ticket": (match) => {
                 renderTemplate(templateTicketAdministration, "content")
+            },
+            "/sales": (match) => {
+                renderTemplate(templateSales, "content")
             }
         })
         .notFound(() => {
