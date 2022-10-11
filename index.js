@@ -6,6 +6,7 @@ import {
 
 import {initTaskName} from "./sites/taskName/taskName.js"
 import { initTimetable } from "./sites/employee/employee.js";
+import {initEmployeeSchedule} from "./sites/homePage/homePage.js";
 
 window.addEventListener("load", async () => {
     const templateHomePage = await loadHtml("./sites/homePage/homePage.html")
@@ -32,7 +33,9 @@ window.addEventListener("load", async () => {
             //For very simple "templates", you can just insert your HTML directly like below
             "/": (match) => {
                 renderTemplate(templateHomePage, "content")
+                initEmployeeSchedule()
                 setTopbarHeader('Forside')
+
             }
             ,
             "/tasks": (match) => {
