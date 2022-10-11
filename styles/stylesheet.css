@@ -121,7 +121,18 @@ ul.menu-simple li {
 }
 #topbar-content {
     display: flex;
+    justify-content: space-between;
+    padding-top: 1vh;
 }
+.topbar-buttons {
+background-color: white;
+padding-top: 1vh;
+padding-bottom: 1vh;
+}
+.topbar-buttons:hover {
+    background-color: lightgrey;
+}
+
 
 .site-content {
     display: flex;

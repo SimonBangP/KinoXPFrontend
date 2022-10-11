@@ -1,0 +1,25 @@
+
+.header {
+    border-bottom: solid lightgrey;
+}
+#information-boxes {
+    display: flex;
+}
+
+.box-information {
+    margin: 10vh 2vw 1vh;
+
+}
+
+.frontpage-box {
+    width: 38vw;
+    height: 38vh;
+    border: solid lightgrey;
+
+    margin-right: 2vw;
+}
+.listItems {
+    color: #40A9FF;
+    margin-left: 2vw;
+    margin-bottom: 1vh
+}
