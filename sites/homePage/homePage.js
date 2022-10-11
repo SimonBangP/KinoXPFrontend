@@ -3,8 +3,9 @@ export async function initEmployeeSchedule () {
 
     console.log(workdays)
     workdays.map(workday => {
-    document.getElementById("box-content").innerText =
-    "[ "
+     let content = document.createElement("p");
+    content.innerText =
+     "[ "
      + workday.employee.role
     + " ] "
     + workday.employee.firstName
@@ -12,11 +13,10 @@ export async function initEmployeeSchedule () {
     + workday.workTasks[0].startTime
     + " - "
     + workday.workTasks[0].endTime
+            document.getElementById("box-content").appendChild(content)
+    }
 
-
-
-
-    })
+    )
 
 
 }
