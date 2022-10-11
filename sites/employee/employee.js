@@ -16,7 +16,6 @@ export async function initTimetable() {
 }
 
 
-
 async function getAllEmployees() {
     return await fetch("http://localhost:8080/api/v1/employees").then(r => r.json());
     
