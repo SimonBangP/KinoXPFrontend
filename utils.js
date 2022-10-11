@@ -6,6 +6,7 @@ export function renderTemplate(template, contentId) {
     }
     content.innerHTML = ""
     content.append(template)
+
   }
 
   export async function loadHtml(page) {
@@ -76,4 +77,9 @@ export function renderTemplate(template, contentId) {
     str = str.replace(/"/g, "&quot;");
     str = str.replace(/'/g, "&#039;");
     return str;
+  }
+
+  export function setTopbarHeader (headerText){
+    document.getElementById("site-name").innerText = headerText
+
   }
