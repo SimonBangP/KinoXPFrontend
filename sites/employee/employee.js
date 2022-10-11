@@ -1,6 +1,5 @@
 export async function initTimetable() {
     var timetable = new Timetable();
-
     timetable.setScope(14,2);
     let employees = await getAllEmployees();
     console.log(employees);
@@ -15,6 +14,8 @@ export async function initTimetable() {
     var renderer = new Timetable.Renderer(timetable);
     renderer.draw('.timetable');
 }
+
+
 
 async function getAllEmployees() {
     return await fetch("http://localhost:8080/api/v1/employees").then(r => r.json());
