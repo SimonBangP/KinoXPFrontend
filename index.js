@@ -22,8 +22,7 @@ window.addEventListener("load", async () => {
     //Not especially nice, BUT MEANT to simplify things. Make the router global so it can be accessed from all js-files
     window.router = router
 
-    router
-        .hooks({
+    router.hooks({
             before(done, match) {
                 setActiveLink("menu", match.url)
                 done()
