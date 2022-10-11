@@ -28,7 +28,7 @@ ul.menu-horizontal li a:hover:not(.active) {
 
 
 ul.menu-horizontal a.active {
-    background-color: #04aa6d;
+    background-color: lightgrey;
 }
 
 /*
@@ -51,7 +51,7 @@ ul.menu-vertical {
     margin: 0;
     padding: 0;
     width: fit-content;
-    background-color: #f1f1f1;
+    background-color: darkred;
     display: flex;
     flex-direction: column;
 }
@@ -64,8 +64,9 @@ ul.menu-vertical li a {
 }
 
 ul.menu-vertical li a.active {
-    background-color: #04aa6d;
+    background-color: #555;
     color: white;
+
 }
 
 ul.menu-vertical li a:hover:not(.active) {
