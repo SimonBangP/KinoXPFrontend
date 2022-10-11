@@ -1,14 +1,14 @@
 import "https://unpkg.com/navigo"  //Will create the global Navigo object used below
 
 import {
-    setActiveLink, adjustForMissingHash, renderTemplate, loadHtml
+    setActiveLink, adjustForMissingHash, renderTemplate, loadHtml, setTopbarHeader
 } from "./utils.js"
 
 import {initTaskName} from "./sites/taskName/taskName.js"
 import { initTimetable } from "./sites/employee/employee.js";
 
 window.addEventListener("load", async () => {
-
+    const templateHomePage = await loadHtml("./sites/homePage/homePage.html")
     const templateTaskName = await loadHtml("./sites/taskName/taskName.html")
     const templateEmployee = await loadHtml("./sites/employee/employee.html")
     const templateSchedule = await loadHtml("./sites/schedule/schedule.html")
@@ -31,31 +31,37 @@ window.addEventListener("load", async () => {
         })
         .on({
             //For very simple "templates", you can just insert your HTML directly like below
-            "/": () => document.getElementById("content").innerHTML =
-                `<h2>Home</h2>
-                <p style='margin-top:2em'>
-                This is the content of the Home Route
-                </p>`
+            "/": (match) => {
+                renderTemplate(templateHomePage, "content")
+                setTopbarHeader('Forside')
+            }
             ,
             "/tasks": (match) => {
                 renderTemplate(templateTaskName, "content")
                 initTaskName()
+                setTopbarHeader('Arbejdsopgaver')
+
             },
             "/employee": (match) => {
                 renderTemplate(templateEmployee, "content")
                 initTimetable()
+                setTopbarHeader('Medarbejdere')
             },
             "/schedule": (match) => {
                 renderTemplate(templateSchedule, "content")
+                setTopbarHeader('Vagtplan')
             },
             "/overview": (match) => {
                 renderTemplate(templateOverview, "content")
+                setTopbarHeader('Spillesal Oversigt')
             },
             "/ticket": (match) => {
                 renderTemplate(templateTicketAdministration, "content")
+                setTopbarHeader('Billet Administration')
             },
             "/sales": (match) => {
                 renderTemplate(templateSales, "content")
+                setTopbarHeader('Salgsvarer')
             }
         })
         .notFound(() => {

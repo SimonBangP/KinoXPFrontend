@@ -51,9 +51,10 @@ ul.menu-vertical {
     margin: 0;
     padding: 0;
     width: fit-content;
-    background-color: darkred;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
+    box-shadow: 5px 10px lightgrey;
 }
 
 ul.menu-vertical li a {
@@ -64,14 +65,14 @@ ul.menu-vertical li a {
 }
 
 ul.menu-vertical li a.active {
-    background-color: #555;
-    color: white;
+    background-color: #E6F7FF;
+    color: #096DD9;
 
 }
 
 ul.menu-vertical li a:hover:not(.active) {
-    background-color: #555;
-    color: white;
+    background-color: #E6F7FF;
+    color: #40A9FF;
 }
 
 .vertical {
@@ -110,6 +111,19 @@ ul.menu-simple li {
 }
 
 .main-page {
+    display: block;
+}
+
+#topbar {
+    width: 100vw;
+    height: fit-content;
+    border-bottom: 2px solid #efeeee;
+}
+#topbar-content {
+    display: flex;
+}
+
+.site-content {
     display: flex;
 }
 
