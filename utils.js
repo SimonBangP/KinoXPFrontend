@@ -83,3 +83,4 @@ export function renderTemplate(template, contentId) {
     document.getElementById("site-name").innerText = headerText
 
   }
+
