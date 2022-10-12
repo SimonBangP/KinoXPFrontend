@@ -6,14 +6,12 @@ import {
 
 import {initTaskName} from "./sites/taskName/taskName.js"
 import { initTimetable } from "./sites/employee/employee.js";
-import { addOne } from "./sites/employee/editEmployee.js";
 import {initEmployeeSchedule} from "./sites/homePage/homePage.js";
 
 window.addEventListener("load", async () => {
     const templateHomePage = await loadHtml("./sites/homePage/homePage.html")
     const templateTaskName = await loadHtml("./sites/taskName/taskName.html")
     const templateEmployee = await loadHtml("./sites/employee/employee.html")
-    const templateEditEmployee = await loadHtml("./sites/employee/editEmployee.html")
     const templateSchedule = await loadHtml("./sites/schedule/schedule.html")
     const templateOverview = await loadHtml("./sites/hallOverview/overview.html")
     const templateTicketAdministration = await loadHtml("./sites/ticketAdministration/ticket.html")
@@ -52,10 +50,6 @@ window.addEventListener("load", async () => {
                 renderTemplate(templateEmployee, "content")
                 initTimetable()
                 setTopbarHeader('Medarbejdere')
-            },
-            "/editEmployee": (match) => {
-                renderTemplate(templateEditEmployee, "extra-content")
-                addOne()
             },
             "/schedule": (match) => {
                 renderTemplate(templateSchedule, "content")
