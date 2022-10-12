@@ -17,6 +17,7 @@ window.addEventListener("load", async () => {
     const templateOverview = await loadHtml("./sites/hallOverview/overview.html")
     const templateTicketAdministration = await loadHtml("./sites/ticketAdministration/ticket.html")
     const templateSales = await loadHtml("./sites/sales/sales.html")
+    const templateAddTaskName = await loadHtml("./sites/taskName/addTaskName.html")
 
     adjustForMissingHash()
 
@@ -44,6 +45,7 @@ window.addEventListener("load", async () => {
                 initTaskName()
                 setTopbarHeader('Arbejdsopgaver')
 
+
             },
             "/employee": (match) => {
                 renderTemplate(templateEmployee, "content")
@@ -69,6 +71,9 @@ window.addEventListener("load", async () => {
             "/sales": (match) => {
                 renderTemplate(templateSales, "content")
                 setTopbarHeader('Salgsvarer')
+            },
+            "/addTaskName": (match) => {
+                renderTemplate(templateAddTaskName, "content")
             }
         })
         .notFound(() => {
