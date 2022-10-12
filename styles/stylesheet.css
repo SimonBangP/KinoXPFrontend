@@ -54,7 +54,7 @@ ul.menu-vertical {
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    box-shadow: 5px 10px lightgrey;
+    border-right: solid 2px lightgrey;
 }
 
 ul.menu-vertical li a {
@@ -125,7 +125,7 @@ ul.menu-simple li {
     padding-top: 1vh;
 }
 .topbar-buttons {
-background-color: white;
+/*background-color: white;*/
 padding-top: 1vh;
 padding-bottom: 1vh;
 }
