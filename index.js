@@ -12,6 +12,7 @@ window.addEventListener("load", async () => {
     const templateHomePage = await loadHtml("./sites/homePage/homePage.html")
     const templateTaskName = await loadHtml("./sites/taskName/taskName.html")
     const templateEmployee = await loadHtml("./sites/employee/employee.html")
+    const templateEditEmployee = await loadHtml("./sites/employee/editEmployee.html")
     const templateSchedule = await loadHtml("./sites/schedule/schedule.html")
     const templateOverview = await loadHtml("./sites/hallOverview/overview.html")
     const templateTicketAdministration = await loadHtml("./sites/ticketAdministration/ticket.html")
@@ -48,6 +49,10 @@ window.addEventListener("load", async () => {
                 renderTemplate(templateEmployee, "content")
                 initTimetable()
                 setTopbarHeader('Medarbejdere')
+            },
+            "/editEmployee": (match) => {
+                renderTemplate(templateEditEmployee, "extra-content")
+                initTimetable()
             },
             "/schedule": (match) => {
                 renderTemplate(templateSchedule, "content")
