@@ -7,6 +7,7 @@ import {
 import {initTaskName} from "./sites/taskName/taskName.js"
 import { initTimetable } from "./sites/employee/employee.js";
 import {initEmployeeSchedule} from "./sites/homePage/homePage.js";
+import {initTimetableHalls} from "./sites/hallOverview/overview.js";
 
 window.addEventListener("load", async () => {
     const templateHomePage = await loadHtml("./sites/homePage/homePage.html")
@@ -62,6 +63,7 @@ window.addEventListener("load", async () => {
             },
             "/overview": (match) => {
                 renderTemplate(templateOverview, "content")
+                initTimetableHalls()
                 setTopbarHeader('Spillesal Oversigt')
             },
             "/ticket": (match) => {
