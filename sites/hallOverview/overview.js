@@ -16,17 +16,6 @@ async function getMoviesByDate(date) {
     return await fetch(URL).then(r => r.json());
 }
 
-function getTaskDateTime(startDate, endTime) {
-    let date = new Date(startDate + " 00:00:00");
-
-    let dateParts = endTime.split(':');
-
-    date.setTime(date.getTime() + dateParts[0] * 60 * 60 * 1000);
-    date.setTime(date.getTime() + dateParts[1] * 60 * 1000);
-    date.setTime(date.getTime() + dateParts[2] * 1000);
-
-    return date;
-}
 function addDescription(){
     var allSpans = document.getElementsByTagName('span');
     for (var i = 0; i < allSpans.length; i++) {
