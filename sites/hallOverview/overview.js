@@ -61,8 +61,17 @@ async function renderTimetable(){
     })
 
     movies.map(movie => {
-        timetable.addEvent("Genre: " + movie.genres, movie.hall.hallNumber, new Date(movie.startTime), new Date(movie.endTime), {class: movie.name})
+        timetable.addEvent(" ", movie.hall.hallNumber, new Date(movie.advertisementStartTime), new Date(movie.movieStartTime), {class: "Re\nk\nla\nme"})
     });
+
+    movies.map(movie => {
+        timetable.addEvent("Genre: " + movie.genres, movie.hall.hallNumber, new Date(movie.movieStartTime), new Date(movie.movieEndTime), {class: movie.name})
+    });
+
+    movies.map(movie => {
+        timetable.addEvent(" ", movie.hall.hallNumber, new Date(movie.movieEndTime), new Date(movie.cleaning), {class: "Ren\ngø\nri\ning"})
+    });
+
 
     var renderer = new Timetable.Renderer(timetable);
     renderer.draw('.timetable');
