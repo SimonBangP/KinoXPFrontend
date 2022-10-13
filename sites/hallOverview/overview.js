@@ -1,26 +1,20 @@
 
-export async function initTimetableHalls() {
-    var timetable = new Timetable();
-    timetable.setScope(8,0);
-    let halls = await getAllHalls();
-    console.log(halls);
-    halls.map(hall => {
-        timetable.addLocations([{"id": hall.hallNumber, "name": "Sal " + hall.hallNumber}]);
-        hall.movies.map(movie => {
-            timetable.addEvent("Genre: " + movie.genres, hall.hallNumber, new Date(movie.startTime), new Date(movie.endTime), {class: movie.name, onClick: function(event) {
-                    window.alert(movie.description);
-                }})
-        });
-    })
+let shownDate = new Date();
 
-    var renderer = new Timetable.Renderer(timetable);
-    renderer.draw('.timetable');
+export async function initTimetableHalls() {
+    renderTimetable();
     addDescription();
+    setupClickEvents()
 }
 
 
 async function getAllHalls() {
     return await fetch("http://localhost:8080/api/v1/halls").then(r => r.json());
+}
+
+async function getMoviesByDate(date) {
+    let URL = "http://localhost:8080/api/v1/movies/" + dateFormat(date);
+    return await fetch(URL).then(r => r.json());
 }
 
 function getTaskDateTime(startDate, endTime) {
@@ -45,4 +39,44 @@ function addDescription(){
             //innerHTML+=('<strong>'+allSpans[i].className.replaceAll('time-entry ','')+'</strong>')
         }
     }
+}
+
+function dateFormat(date){
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // month er 0 indexed
+    const year = date.getFullYear();
+
+    return year + "-" + month + "-" + day;
+}
+
+function setupClickEvents(){
+
+    document.getElementById("next-day").onclick = function (){
+        shownDate.setDate(shownDate.getDate() + 1);
+        renderTimetable()
+    }
+
+    document.getElementById("previous-day").onclick = function () {
+        shownDate.setDate(shownDate.getDate() - 1);
+        renderTimetable();
+    }
+
+}
+
+async function renderTimetable(){
+    let timetable = new Timetable();
+    timetable.setScope(8,0);
+    let halls = await getAllHalls();
+    let movies = await getMoviesByDate(shownDate);
+
+    halls.map(hall => {
+        timetable.addLocations([{"id": hall.hallNumber, "name": "Sal " + hall.hallNumber}]);
+    })
+
+    movies.map(movie => {
+        timetable.addEvent("Genre: " + movie.genres, movie.hall.hallNumber, new Date(movie.startTime), new Date(movie.endTime), {class: movie.name})
+    });
+
+    var renderer = new Timetable.Renderer(timetable);
+    renderer.draw('.timetable');
 }
