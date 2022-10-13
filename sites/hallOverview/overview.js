@@ -24,7 +24,6 @@ function addDescription(){
             let text = document.createElement('strong');
             text.innerHTML=(allSpans[i].className.replaceAll('time-entry ',''));
             event.insertBefore(text,event.children[0]);
-            //innerHTML+=('<strong>'+allSpans[i].className.replaceAll('time-entry ','')+'</strong>')
         }
     }
 }
