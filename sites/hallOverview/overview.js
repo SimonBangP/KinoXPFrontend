@@ -3,7 +3,6 @@ let shownDate = new Date();
 
 export async function initTimetableHalls() {
     renderTimetable();
-    addDescription();
     setupClickEvents()
 }
 
@@ -79,4 +78,5 @@ async function renderTimetable(){
 
     var renderer = new Timetable.Renderer(timetable);
     renderer.draw('.timetable');
+    addDescription();
 }
