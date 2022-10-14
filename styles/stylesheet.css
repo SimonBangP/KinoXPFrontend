@@ -79,7 +79,7 @@ ul.menu-vertical li a:hover:not(.active) {
     display: flex;
 }
 ul.menu-vertical {
-    height: 100vh;
+    height: 100%;
 }
 /*
  Vertical style BEGIN
