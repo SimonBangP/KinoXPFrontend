@@ -19,6 +19,29 @@ export async function initEmployeeSchedule () {
             document.getElementById("box-content").appendChild(content)
     }
     )
+    setupClickEvents();
+}
+
+function setupClickEvents () {
+    document.getElementById("movie-header").onclick=function (){
+        window.open("https://www.imdb.com/title/tt0241527/?ref_=nv_sr_srsg_1")
+    }
+
+    document.getElementById("show-more").onclick = showInformation;
+
+
+    function showInformation () {
+
+        document.getElementById("movie-further-information").style.cssText = `
+        display: block;
+        `
+        
+        document.getElementById("show-more").style.display = "none";
+
+    }
+
+ 
+
 }
 
 
